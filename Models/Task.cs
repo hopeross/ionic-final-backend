@@ -1,5 +1,6 @@
+namespace task_api.Models;
 
-public class Task 
+public class Tasks 
 {
     public int TaskId { get; set; }
     public string? Title { get; set; }

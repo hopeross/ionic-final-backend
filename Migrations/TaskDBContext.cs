@@ -1,9 +1,10 @@
 using Microsoft.EntityFrameworkCore;
+using task_api.Models;
 
 namespace task_api.Migrations;
 
 public class TaskDbContext: DbContext {
-    public DbSet<Task> Task { get; set; }
+    public DbSet<Tasks> Tasks { get; set; }
 
     public TaskDbContext(DbContextOptions<TaskDbContext> options) : base (options) {}
 
@@ -11,7 +12,7 @@ public class TaskDbContext: DbContext {
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Task>(entity => 
+        modelBuilder.Entity<Tasks>(entity => 
         {
             entity.HasKey(e => e.TaskId);
             entity.Property(e => e.Title);
