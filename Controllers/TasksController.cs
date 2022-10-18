@@ -26,7 +26,7 @@ public class TasksController : ControllerBase
     }
 
     [HttpGet]
-    [Route("{tasksId:int}")]
+    [Route("{taskId:int}")]
     public ActionResult<Tasks> GetTaskById(int taskId)
     {
         var task = _tasksRepository.GetTaskById(taskId);
@@ -59,7 +59,7 @@ public class TasksController : ControllerBase
 
     [HttpDelete]
     [Route("{taskId:int}")]
-    public ActionResult DeleteTask(int taskId)
+    public ActionResult DeleteTaskById(int taskId)
     {
         _tasksRepository.DeleteTaskById(taskId);
         return NoContent();

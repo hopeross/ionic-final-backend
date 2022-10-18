@@ -21,7 +21,11 @@ public class TasksRepository : ITasksRepository
 
     public void DeleteTaskById(int taskId)
     {
-        throw new NotImplementedException();
+        var task = _context.Tasks.Find(taskId);
+        if (task != null) {
+            _context.Tasks.Remove(task);
+            _context.SaveChanges();
+        }
     }
 
     public IEnumerable<Tasks> GetAllTasks()
@@ -44,5 +48,4 @@ public class TasksRepository : ITasksRepository
         }
         return originalTask;
     }
-
 }

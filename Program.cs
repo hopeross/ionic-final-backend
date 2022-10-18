@@ -1,4 +1,5 @@
 using task_api.Migrations;
+using task_api.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSqlite<TaskDbContext>("Data Source=TaskDb.db");
+builder.Services.AddScoped<ITasksRepository, TasksRepository>();
 
 var app = builder.Build();
 
