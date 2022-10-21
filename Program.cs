@@ -1,3 +1,4 @@
+
 using task_api.Migrations;
 using task_api.Repositories;
 
@@ -20,6 +21,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors(builder => builder
+    .AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+);
 
 app.UseHttpsRedirection();
 
